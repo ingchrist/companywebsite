@@ -1,4 +1,4 @@
-# AAWAI WordPress Theme
+# WordPress
 
 
 
