@@ -1,6 +1,6 @@
 # AAWAI WordPress Theme
 
-AIビジネスソリューション WordPress Theme
+
 
 ## Installation
 
@@ -15,11 +15,11 @@ AIビジネスソリューション WordPress Theme
 3. **Set up pages:**
    Create the following pages in WordPress Admin → Pages → Add New:
    - **Home** (Front Page) - Set as "Front Page" in Settings → Reading
-   - **About** (会社案内) - Use template "About Page"
-   - **Service** (サービス) - Use template "Service Page"
-   - **Contact** (お問い合わせ) - Use template "Contact Page"
-   - **News** (AI最新情報) - Set as "Posts Page" in Settings → Reading
-   - **Privacy Policy** (個人情報保護法) - Use template "Privacy Policy Page"
+   - **About** - Use template "About Page"
+   - **Service**  - Use template "Service Page"
+   - **Contact**  - Use template "Contact Page"
+   - **News**  - Set as "Posts Page" in Settings → Reading
+   - **Privacy Policy**  - Use template "Privacy Policy Page"
 
 4. **Set up navigation menu:**
    - Go to Appearance → Menus
@@ -93,11 +93,7 @@ Edit the CSS files in the `css/` directory:
 - Edit page templates in the theme files for structural changes
 - Use WordPress Editor for page content
 
-## Support
 
-For issues or questions, please contact AAWAI Corporation.
-
-## License
 
 GNU General Public License v2 or later
 
