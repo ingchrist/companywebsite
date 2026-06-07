@@ -1,0 +1,317 @@
+
+/* ---------------------------------Hero Part----------------------------- */
+
+.hero-animated-text {
+    opacity: 0;
+    pointer-events: none;
+}
+
+
+.hero-animated-text span {
+    display: inline-block;
+}
+
+@keyframes heroReveal {
+    to {
+        opacity: 1;
+        transform: translateX(0) skewX(0deg);
+        filter: blur(0px);
+    }
+}
+
+/* --------------------------Hero Subtitle---------------------------- */
+
+/* Initial hidden state for hero-subtext */
+.hero-subtext {
+    opacity: 0;
+    transform: translateX(-50px);
+    filter: none;
+    pointer-events: none;
+}
+
+
+/* Visible animation state */
+.hero-subtext.visible {
+    animation: heroSubtextFloat 1.2s cubic-bezier(.19, 1, .22, 1) forwards;
+    pointer-events: auto;
+}
+
+@keyframes heroSubtextFloat {
+    0% {
+        opacity: 0;
+        transform: translateX(-50px);
+        filter: none;
+    }
+    60% {
+        opacity: 1;
+        transform: translateX(6px);
+        filter: none;
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+        filter: none;
+    }
+}
+
+/* ---------------------------Hero Buttons------------------------ */
+
+/* Parent container initially hidden */
+.hero-buttons {
+    opacity: 0;
+    transform: translateY(32px);
+    filter: none;
+    pointer-events: none;
+}
+
+
+/* When visible (scroll-trigger) */
+.hero-buttons.visible {
+    animation: heroButtonsLift 1s cubic-bezier(.19, 1, .22, 1) forwards;
+    pointer-events: auto;
+}
+
+@keyframes heroButtonsLift {
+    0% {
+        opacity: 0;
+        transform: translateY(32px);
+        filter: none;
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+        filter: none;
+    }
+}
+
+/* ---- Individual button animations ---- */
+.hero-buttons .btn {
+    opacity: 0;
+    transform: translateY(26px);
+    filter: none;
+}
+
+/* Buttons visible after parent reveal */
+.hero-buttons.visible .btn {
+    animation: heroButtonRise 0.9s cubic-bezier(.19, 1, .22, 1) forwards;
+}
+
+@keyframes heroButtonRise {
+    0% {
+        opacity: 0;
+        transform: translateY(26px);
+        filter: none;
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+        filter: none;
+    }
+}
+
+@keyframes binaryDrift {
+    from {
+        transform: translateX(-20%);
+    }
+    to {
+        transform: translateX(20%);
+    }
+}
+
+@keyframes binaryMarquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* Stagger timing */
+.hero-buttons.visible .btn:nth-child(1) {
+    animation-delay: 0.20s;
+}
+
+.hero-buttons.visible .btn:nth-child(2) {
+    animation-delay: 0.35s;
+}
+
+/* ----------------------Features View------------------------------ */
+.count {
+    display: inline-block;
+    font-weight: 700;
+    opacity: 1;
+    transition: color .3s ease;
+}
+
+.count.active {
+    color: #ffffff;
+    /* highlight when done */
+}
+
+.text-note {
+    opacity: 0;
+    transform: translateY(-50px);
+    transition: opacity 0.5s ease, transform 1s ease;
+}
+
+.text-note.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ----------------------Company Info------------------------ */
+
+/* Initial hidden state */
+.company-info-text {
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateX(-200px);
+    /* filter: blur(12px); */
+    transition: opacity 3s cubic-bezier(.16, .84, .44, 1),
+        transform 3s cubic-bezier(.16, .84, .44, 1),
+        filter 3s ease-out;
+}
+
+.why-item {
+    opacity: 0;
+    transform: translateY(100px);
+    /* filter: blur(12px); */
+    transition: opacity 3s cubic-bezier(.16, .84, .44, 1),
+        transform 3s cubic-bezier(.16, .84, .44, 1),
+        filter 3s ease-out;
+}
+
+/* Visible state */
+.company-info-text.visible,
+.why-item.visible {
+    opacity: 1;
+    transform: translateX(0);
+    /* filter: blur(0); */
+}
+
+/* ----------------View More Button-------------------- */
+
+/* Hidden initial state */
+.btn-more {
+    opacity: 0;
+    transform: translateX(-100px);
+    filter: blur(3px);
+    transition:
+        opacity 1s cubic-bezier(.22, 1, .36, 1),
+        transform 3s cubic-bezier(.22, 1, .36, 1),
+        filter 1s ease;
+}
+
+/* Visible state */
+.btn-more.visible {
+    opacity: 1;
+    transform: translateX(0);
+    filter: blur(0);
+}
+
+/* ----------------------Privacy Policy Animations------------------------ */
+
+/* Initial hidden state for privacy policy elements */
+.pp-animate {
+    opacity: 0;
+    transform: translateY(80px);
+    transition: opacity 0.8s cubic-bezier(.19, 1, .22, 1),
+        transform 1.5s cubic-bezier(.19, 1, .22, 1);
+    transition-delay: 0.3s;
+}
+
+/* Visible state */
+.pp-animate.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Privacy Policy List Items Animation */
+.pp-li-animate {
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: opacity 0.6s cubic-bezier(.19, 1, .22, 1),
+                transform 0.8s cubic-bezier(.19, 1, .22, 1);
+}
+
+.pp-li-animate.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* =================== CHAT BUTTON MOBILE ANIMATIONS =================== */
+
+@keyframes chatButtonFloatPulse {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg) scale(1);
+        box-shadow: 0 2px 4px rgba(109, 75, 255, 0.4),
+                    0 0 10px rgba(109, 75, 255, 0.2),
+                    0 0 20px rgba(109, 75, 255, 0.1);
+    }
+    25% {
+        transform: translateY(-8px) rotate(2deg) scale(1.03);
+        box-shadow: 0 3px 6px rgba(109, 75, 255, 0.5),
+                    0 0 15px rgba(109, 75, 255, 0.3),
+                    0 0 30px rgba(109, 75, 255, 0.15);
+    }
+    50% {
+        transform: translateY(-12px) rotate(0deg) scale(1.05);
+        box-shadow: 0 4px 8px rgba(109, 75, 255, 0.6),
+                    0 0 20px rgba(109, 75, 255, 0.4),
+                    0 0 40px rgba(109, 75, 255, 0.2),
+                    0 0 60px rgba(126, 216, 255, 0.1);
+    }
+    75% {
+        transform: translateY(-8px) rotate(-2deg) scale(1.03);
+        box-shadow: 0 3px 6px rgba(109, 75, 255, 0.5),
+                    0 0 15px rgba(109, 75, 255, 0.3),
+                    0 0 30px rgba(109, 75, 255, 0.15);
+    }
+}
+
+@keyframes chatButtonAura {
+    0%, 100% {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    50% {
+        opacity: 0.4;
+        transform: scale(1.1);
+    }
+}
+
+@keyframes chatButtonRing {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    50% {
+        opacity: 0.6;
+        transform: scale(1.2);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(1.5);
+    }
+}
+
+@keyframes chatButtonClick {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(0.9);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes chatButtonIconPulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.9;
+    }
+}

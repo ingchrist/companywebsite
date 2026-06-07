@@ -1,0 +1,74 @@
+.privacypolicy {
+    position: relative;
+    width: 100%;
+
+    background: url('../assets/images/biz6.jpg') center/cover no-repeat;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+
+    padding-top: clamp(80px, 12vw, 150px);
+    padding-bottom: clamp(40px, 6vw, 80px);
+    padding-inline: clamp(20px, 5vw, 80px);
+
+    color: white;
+    font-family: "Noto Sans JP", sans-serif;
+}
+
+/* Dark Overlay */
+.privacypolicy::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+    z-index: 0;
+}
+
+/* Content Wrapper */
+.privacypolicy-content {
+    position: relative;
+    z-index: 2;
+
+    max-width: 1400px;
+    width: 100%;
+
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(4px);
+
+    padding: clamp(20px, 4vw, 50px);
+    border-radius: clamp(8px, 1vw, 16px);
+
+    line-height: 1.9;
+}
+
+/* Headings */
+.privacypolicy h2 {
+    font-size: clamp(22px, 3vw, 34px);
+    margin-bottom: clamp(10px, 1vw, 20px);
+    font-weight: 700;
+}
+
+.privacypolicy h3 {
+    font-size: clamp(17px, 2.5vw, 26px);
+    margin-top: clamp(20px, 3vw, 40px);
+    margin-bottom: clamp(10px, 1vw, 20px);
+}
+
+/* Paragraphs */
+.privacypolicy p {
+    font-size: clamp(13px, 2vw, 17px);
+    margin-bottom: clamp(10px, 1vw, 16px);
+}
+
+/* Lists */
+.privacypolicy ul {
+    margin-left: clamp(16px, 3vw, 28px);
+    margin-bottom: clamp(10px, 1vw, 16px);
+}
+
+.privacypolicy ul li {
+    font-size: clamp(13px, 2vw, 17px);
+    margin-bottom: clamp(6px, 1vw, 12px);
+}

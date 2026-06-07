@@ -1,0 +1,367 @@
+/* Main container */
+.contact-container {
+    display: flex;
+    height: 100vh;
+    padding-top: clamp(60px, 8vw, 100px);
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    flex-direction: column;
+    /* Stack elements on smaller screens */
+    
+    overflow: hidden;
+}
+
+/* Background Image */
+.contact-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../assets/images/contact.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    
+    /* Animation initial state */
+    opacity: 0;
+    transform: scale(1.1);
+    transition: opacity 1.2s ease, transform 1.2s ease;
+}
+
+/* Animated state */
+.contact-container.animate-in .contact-image {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Overlay for the background */
+.contact-image .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    /* Black overlay */
+    z-index: 1;
+    
+    /* Animation initial state */
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+/* Animated state */
+.contact-container.animate-in .contact-image .overlay {
+    opacity: 1;
+}
+
+/* Contact Form Container */
+.contact-form {
+    position: relative;
+    z-index: 2;
+    padding: 40px;
+    width: 95%;
+    max-width: 600px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    height: fit-content;
+    background: rgba(10, 10, 20, 0.55);
+    padding: clamp(20px, 4vw, 30px);
+    border-radius: 10px;
+    backdrop-filter: blur(6px);
+    
+    /* Animation initial state */
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+    transition: opacity 0.9s cubic-bezier(0.19, 1, 0.22, 1),
+                transform 0.9s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+/* Animated state */
+.contact-container.animate-in .contact-form {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* Title and Text */
+.contact-form h1 {
+    font-size: clamp(24px, 5vw, 32px);
+    font-weight: bold;
+    margin-bottom: 20px;
+    
+    /* Animation initial state */
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.8s cubic-bezier(0.19, 1, 0.22, 1),
+                transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+    transition-delay: 0.2s;
+}
+
+/* Animated state */
+.contact-container.animate-in .contact-form h1 {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.contact-form p {
+    font-size: clamp(14px, 2vw, 18px);
+    margin-bottom: 30px;
+    
+    /* Animation initial state */
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s cubic-bezier(0.19, 1, 0.22, 1),
+                transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+    transition-delay: 0.3s;
+}
+
+/* Animated state */
+.contact-container.animate-in .contact-form p {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Form Groups */
+.form-row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    /* Make form fields stack on smaller screens */
+}
+
+.form-row .form-group {
+    box-sizing: border-box;
+    /* Desktop: three items per row */
+    flex: 0 0 calc(33.333% - 13.333px);
+    
+    /* Animation initial state */
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.7s cubic-bezier(0.19, 1, 0.22, 1),
+                transform 0.7s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+/* Animated state - form groups animate when container is animated */
+.contact-container.animate-in .form-group {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Stagger delays for form groups */
+.contact-container.animate-in .form-row:nth-of-type(1) .form-group:nth-of-type(1) {
+    transition-delay: 0.4s;
+}
+
+.contact-container.animate-in .form-row:nth-of-type(1) .form-group:nth-of-type(2) {
+    transition-delay: 0.5s;
+}
+
+.contact-container.animate-in .form-row:nth-of-type(1) .form-group:nth-of-type(3) {
+    transition-delay: 0.6s;
+}
+
+.contact-container.animate-in .form-row:nth-of-type(2) .form-group:nth-of-type(1) {
+    transition-delay: 0.7s;
+}
+
+.contact-container.animate-in .form-row:nth-of-type(2) .form-group:nth-of-type(2) {
+    transition-delay: 0.8s;
+}
+
+.contact-container.animate-in .form-row:nth-of-type(2) .form-group:nth-of-type(3) {
+    transition-delay: 0.9s;
+}
+
+/* Single form group (textarea) - not inside form-row */
+.contact-container.animate-in form > .form-group:not(.form-row) {
+    transition-delay: 1s;
+}
+
+/* Form Inputs and Textarea */
+.form-group label {
+    font-size: clamp(14px, 2vw, 16px);
+    margin-bottom: 8px;
+    display: block;
+    
+    /* Animation initial state */
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: opacity 0.6s cubic-bezier(0.19, 1, 0.22, 1),
+                transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+/* Animated state */
+.contact-container.animate-in .form-group label {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    opacity: 0.5;
+    transition: opacity 0.3s ease, background-color 0.3s ease;
+    background-color: rgba(255, 255, 255, 0.5);
+    
+    /* Animation initial state */
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.6s cubic-bezier(0.19, 1, 0.22, 1),
+                transform 0.6s cubic-bezier(0.19, 1, 0.22, 1),
+                background-color 0.3s ease;
+}
+
+/* Animated state */
+.contact-container.animate-in .form-group input,
+.contact-container.animate-in .form-group textarea {
+    opacity: 0.5;
+    transform: translateY(0);
+}
+
+.contact-container.animate-in .form-group input:focus,
+.contact-container.animate-in .form-group input:active,
+.contact-container.animate-in .form-group textarea:focus,
+.contact-container.animate-in .form-group textarea:active {
+    opacity: 1;
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.form-group input:focus,
+.form-group input:active,
+.form-group textarea:focus,
+.form-group textarea:active {
+    opacity: 1;
+    background-color: rgba(255, 255, 255, 1);
+    outline: none;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+/* Submit Button */
+.submit-btn {
+    background-color: #6D4BFF;
+    color: white;
+    padding: 12px 24px;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    
+    /* Animation initial state */
+    opacity: 0;
+    transform: translateY(20px) scale(0.9);
+    transition: opacity 0.8s cubic-bezier(0.19, 1, 0.22, 1),
+                transform 0.8s cubic-bezier(0.19, 1, 0.22, 1),
+                background-color 0.3s ease,
+                box-shadow 0.3s ease;
+    transition-delay: 1s;
+}
+
+/* Animated state */
+.contact-container.animate-in .submit-btn {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.contact-container.animate-in .submit-btn:hover {
+    background-color: #8B68FF;
+    transform: translateY(-3px) scale(1);
+    box-shadow: 0 6px 18px rgba(109, 75, 255, 0.35);
+}
+
+.form-column {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.form-column .form-group {
+    flex: 1 1 45%;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+
+    /* Contact form padding and layout adjustments for smaller screens */
+    .contact-form {
+        padding: 20px;
+        margin: 30px;
+    }
+
+    /* Title and description font adjustments for mobile */
+    .contact-form h1 {
+        font-size: 28px;
+    }
+
+    .contact-form p {
+        font-size: 16px;
+    }
+
+    /* Mobile: two items per row */
+    .form-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 10px;
+    }
+
+    /* Two-up layout on mobile for all form-row children */
+    .form-row .form-group {
+        box-sizing: border-box;
+        flex: 0 0 calc(50% - 5px);
+    }
+
+    /* Adjust input and textarea padding */
+    .form-group input,
+    .form-group textarea {
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    /* Adjust button size */
+    .submit-btn {
+        padding: 10px 20px;
+        font-size: 14px;
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    /* Smaller adjustments for very small screens */
+    .contact-form {
+        padding: 15px;
+        margin-bottom: 20px;
+    }
+
+    .contact-form h1 {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    .contact-form p {
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+
+    .submit-btn {
+        padding: 8px 18px;
+        font-size: 12px;
+    }
+
+    .form-group label {
+        margin-bottom: 4px;
+    }
+}
